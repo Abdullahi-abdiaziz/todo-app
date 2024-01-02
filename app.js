@@ -2,6 +2,7 @@ const todoInput = document.querySelector("#todo-input");
 const todosContainer = document.querySelector(".todos");
 const completedCount = document.querySelector(".completedCount");
 
+let elem = null;
 let todos = [];
 
 todoInput.addEventListener("keyup", (e) => {
@@ -61,6 +62,14 @@ function NewTodo(value) {
   todo.appendChild(todoText);
   todo.appendChild(todoCross);
 
+  // todo.draggable = true;
+  // todo.addEventListener("dragstart", (e) => {
+  //   e.dataTransfer.effectAllowed = "move";
+  //   e.dataTransfer.setData("text/plain, null");
+  //   elem = e.target;
+  //   console.log(elem)
+  // });
+
   todosContainer.appendChild(todo);
 }
 
@@ -81,11 +90,13 @@ function clearCompleted() {
 }
 
 function showAll() {
-  document.querySelectorAll(".filters div").forEach((d, i) => {
+  document.querySelectorAll(".filters button").forEach((d, i) => {
     if (i === 0) {
-      d.classList.add("filterActive");
+      d.classList.add("filter-active");
+      console.log("added")
     } else {
-      d.classList.remove("filterActive");
+      d.classList.remove("filter-active");
+      console.log('removed')
     }
   });
   document.querySelectorAll(".todo").forEach((todo) => {
@@ -94,11 +105,11 @@ function showAll() {
 }
 
 function filterCompleted() {
-  document.querySelectorAll(".filters div").forEach((d, i) => {
+  document.querySelectorAll(".filters button").forEach((d, i) => {
     if (i === 2) {
-      d.classList.add("filterActive");
+      d.classList.add("filter-active");
     } else {
-      d.classList.remove("filterActive");
+      d.classList.remove("filter-active");
     }
   });
   document.querySelectorAll(".todo").forEach((todo) => {
@@ -110,11 +121,11 @@ function filterCompleted() {
 }
 
 function filterActive() {
-  document.querySelectorAll(".filters div").forEach((d, i) => {
+  document.querySelectorAll(".filters button").forEach((d, i) => {
     if (i === 1) {
-      d.classList.add("filterActive");
+      d.classList.add("filter-active");
     } else {
-      d.classList.remove("filterActive");
+      d.classList.remove("filter-active");
     }
   });
   document.querySelectorAll(".todo").forEach((todo) => {

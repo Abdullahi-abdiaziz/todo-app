@@ -23,17 +23,17 @@
       </div>
       <div class="type-todo">
         <div class="circle"></div>
-        <input type="text" id="todo-input" />
+        <input placeholder="Create a new Todo..." type="text" id="todo-input" />
       </div>
 
       <div class="todos"></div>
       <div class="remarks">
         <div class="completedCount"></div>
-        <div onclick="clearCompleted()">Clear completed</div>
+        <button onclick="clearCompleted()">Clear completed</button>
         <div class="filters">
-          <div onclick="showAll()">All</div>
-          <div onclick="filterActive()">Active</div>
-          <div onclick="filterCompleted()">Completted</div>
+          <button onclick="showAll()" class="filter-active">All</button>
+          <button onclick="filterActive()">Active</button>
+          <button onclick="filterCompleted()">Completted</button>
         </div>
       </div>
     </main>
